@@ -29,7 +29,7 @@ flatten(L)->
 
 flatten_acc([], L) ->
     io:format("f0: ~p~n", [L]),
-    L;
+    reverse(L);
 flatten_acc([[[]]|T], L) ->
     io:format("f1: T: ~p L: ~p~n", [T, L]),
     flatten_acc(T,L);
