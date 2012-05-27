@@ -1,6 +1,6 @@
 -module(ex5).
 -export([filter/2, reverse/1,
-        help/2, concatenate/1]).
+         concatenate/1, flatten/1]).
 
 filter([], _) ->
     [];
@@ -27,9 +27,14 @@ help([H|T], L) ->
 help([], L) ->
     L.
 
-    
+flatten(L) ->
+    flatten_acc(L, []).
+
+flatten_acc([H|T], L) ->
+    concatenate([flatten_acc(H, L),flatten_acc(T, L)]);
+flatten_acc([], L) ->
+    L;
+flatten_acc(N, L) ->
+    [N|L].
 
 
-    
-
-    
